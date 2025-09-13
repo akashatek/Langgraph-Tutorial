@@ -2,7 +2,7 @@
 # 1. Install the search engine
 #
 
-# pip install -U langchain-tavily
+# pip install -U langchain-openai langgraph dotenv langchain-tavily
 
 #
 # 2. Configure your environment
@@ -130,23 +130,25 @@ graph = graph_builder.compile()
 #
 # 7 - Visualize the graph (optional)
 #
-try:
-    # Use the correct function to get a bytes-like object
-    filename="02-add-tools.png"
-    png_data = graph.get_graph().draw_mermaid_png()
-    with open(filename, "wb") as f:
-        f.write(png_data)
-    print(f"Successfully saved the graph to {filename}")
+if __debug__:
+    try:
+        # Use the correct function to get a bytes-like object
+        filename="02-add-tools.png"
+        png_data = graph.get_graph().draw_mermaid_png()
+        with open(filename, "wb") as f:
+            f.write(png_data)
+        print(f"Successfully saved the graph to {filename}")
 
-except Exception as e:
-        print(f"An error occurred while saving the graph: {e}")
+    except Exception as e:
+            print(f"An error occurred while saving the graph: {e}")
 
 #
 # 8 - Ask the bot questions
 #
 
 def stream_graph_updates(user_input: str):
-    for event in graph.stream({"messages": [{"role": "user", "content": user_input}]}):
+    for event in graph.stream(
+        {"messages": [{"role": "user", "content": user_input}]}):
         for value in event.values():
             print("Assistant:", value["messages"][-1].content)
 

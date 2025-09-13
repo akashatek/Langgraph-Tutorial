@@ -95,3 +95,34 @@ Let me know if you want more details about how any tool works, or if you have a 
 Agent Graph
 
 ![02-add-tools.png](./02-add-tools.png)
+
+
+<a id="02-AddMemory"></a>
+## 03 - Add Memory
+
+Reference: [Add memory](https://langchain-ai.github.io/langgraph/tutorials/get-started/3-add-memory/)
+
+Run the agent either **03-add-memory.py**.
+```
+> python -O 03-add-memory.py
+
+> User: Hi my name is Alvin Heib
+================================ Human Message =================================
+
+Hi my name is Alvin Heib
+================================== Ai Message ==================================
+
+Hello, Alvin Heib! How can I assist you today?
+
+> User: what is my name?
+================================ Human Message =================================
+
+what is my name?
+================================== Ai Message ==================================
+
+Your name is Alvin Heib. How can I help you today, Alvin?
+```
+
+Agent Graph
+
+![03-add-memory.png](./03-add-memory.png)

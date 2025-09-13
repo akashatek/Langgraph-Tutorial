@@ -1,16 +1,8 @@
-
 #
-# 1. Import LLM and Environment Variables
+# 1. Install packages
 #
 
-import os
-from langchain.chat_models import init_chat_model
-import dotenv
-
-dotenv.load_dotenv()
-
-openai_api_key = os.environ["OPENAI_API_KEY"]
-llm = init_chat_model("openai:gpt-4.1", openai_api_key=openai_api_key)
+# pip install -U langchain-openai langgraph dotenv
 
 #
 # 2. Create a StateGraph¶
@@ -28,6 +20,15 @@ graph_builder = StateGraph(State)
 #
 # 3. Add a node
 #
+import os
+from langchain.chat_models import init_chat_model
+import dotenv
+
+dotenv.load_dotenv()
+
+openai_api_key = os.environ["OPENAI_API_KEY"]
+llm = init_chat_model("openai:gpt-4.1", openai_api_key=openai_api_key)
+
 def chatbot(state: State):
     return {"messages": [llm.invoke(state["messages"])]}
 
@@ -52,16 +53,17 @@ graph = graph_builder.compile()
 #
 # 7 - Visualize the graph (optional)
 #
-try:
-    # Use the correct function to get a bytes-like object
-    filename="01-basic-chatbot.png"
-    png_data = graph.get_graph().draw_mermaid_png()
-    with open(filename, "wb") as f:
-        f.write(png_data)
-    print(f"Successfully saved the graph to {filename}")
+if __debug__:
+    try:
+        # Use the correct function to get a bytes-like object
+        filename="01-basic-chatbot.png"
+        png_data = graph.get_graph().draw_mermaid_png()
+        with open(filename, "wb") as f:
+            f.write(png_data)
+        print(f"Successfully saved the graph to {filename}")
 
-except Exception as e:
-        print(f"An error occurred while saving the graph: {e}")
+    except Exception as e:
+            print(f"An error occurred while saving the graph: {e}")
 
 #
 # 8 - Run the chatbot

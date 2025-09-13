@@ -2,7 +2,7 @@
 # 1. Install the search engine
 #
 
-# pip install -U langchain-tavily
+# pip install -U langchain-openai langgraph dotenv langchain-tavily
 
 #
 # 2. Configure your environment
