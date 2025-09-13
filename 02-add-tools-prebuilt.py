@@ -82,7 +82,7 @@ graph = graph_builder.compile()
 #
 try:
     # Use the correct function to get a bytes-like object
-    filename="02-add-tool-prebuilts.png"
+    filename="02-add-tools-prebuilt.png"
     png_data = graph.get_graph().draw_mermaid_png()
     with open(filename, "wb") as f:
         f.write(png_data)
