@@ -17,8 +17,8 @@ List of all [Langgraph](https://www.langchain.com/langgraph) Tutorial on the off
 
 Please make sure to make a local copy of this git repo.
 ```
-> git clone https://github.com/akashatek/Kiny
-> cd LanggraphTutorial
+> git clone https://github.com/akashatek/Langgraph-Tutorial
+> cd Langgraph-Tutorial
 ```
 
 Copy your local file **example.env** into a new secret file **.env**.  
@@ -50,7 +50,7 @@ Install your development environment
 
 Run your python application.
 ```
-> python <application name>.py
+> python -O <application name>.py
 ``` 
 
 <a id="01-BasicChatbot"></a>
@@ -77,7 +77,7 @@ Reference: [Add tools](https://langchain-ai.github.io/langgraph/tutorials/get-st
 
 Run the agent either **02-add-tools.py** or alternatively **02-add-tools-prebuilts.py**
 ```
-> python-O 02-add-tools.py
+> python -O 02-add-tools.py
 Successfully saved the graph to 02-add-tools.png
 > User: list all your tools
 Assistant: Here are the tools I currently have access to:
